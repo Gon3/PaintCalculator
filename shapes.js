@@ -54,7 +54,7 @@ class Staircase extends Rectangle {
     }
 
     toString(){
-        return super.toString() + `, Number of Steps: ${steps}`;
+        return super.toString() + `, Number of Steps: ${this.steps}`;
     }
 }
 
