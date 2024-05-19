@@ -1,5 +1,5 @@
 const shp = require("./shapes");
-//const pt = require("./paint"); 
+const pt = require("./paint"); 
 const prompt = require('prompt-sync')({sigint: true});
 
 let walls = []; 
@@ -37,7 +37,7 @@ while(true){
 }
 
 console.log(`Total area: ${shp.sumAreas(walls)}ft^2`);
-//pt.paintPricePrompt(shp.sumAreas(walls)); 
+pt.paintPricePrompt(shp.sumAreas(walls)); 
 
 function wallPrompt(){ //prompt for editing shape of wall
     let ans = "";
@@ -91,6 +91,10 @@ function wallPrompt(){ //prompt for editing shape of wall
         if(ans.toUpperCase() === "R" || ans.toUpperCase() === "T"){
             let name = prompt("Enter name of obstacle: "); 
             shapePrompt(walls[currentIndex], ans.toLowerCase(), "obstacle", name, true); 
+            if(walls[currentIndex].calculateArea() <= 0){
+                console.log("Too many or too large obstacle(s) added. Wall area is now invalid. Removing most current obstacle.");
+                walls[currentIndex].obstacles.pop();
+            }
         } else if(ans.toUpperCase() === "D" && walls[currentIndex].obstacles.length > 0){
             let index;
             while(true){

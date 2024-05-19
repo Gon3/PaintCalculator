@@ -1,8 +1,9 @@
 //test code for paint
 const prompt = require('prompt-sync')({sigint: true});
- //area used for tests
+
 let latexCoverage = 300;
 let acrylicCoverage = 250; 
+
 function paintPricePrompt(totalArea){
     let ans; 
     while(true){
@@ -140,6 +141,6 @@ function selectPrompt(gallons, latex){
     }
 }
 
-paintPricePrompt(24433); 
+//paintPricePrompt(24433); //to test prompt
 
-//module.exports = {paintPricePrompt}; 
+module.exports = {paintPricePrompt}; 
