@@ -124,7 +124,7 @@ class Wall extends Shape {
     }
 
     toString(){
-        return `Name: ${this.name}, Area: ${this.calculateArea()}m^2`;
+        return `Name: ${this.name}, Area: ${this.calculateArea()}ft^2`;
     }
 }
 
